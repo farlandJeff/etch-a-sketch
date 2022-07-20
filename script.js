@@ -1,11 +1,13 @@
 const sketchBoard = document.querySelector('.board');
+const sizeButton = document.querySelector('.sizeBtn');
+let size = 16;
 let draw = false;
 
 window.addEventListener('mouseup', () => {
     draw = false;
 })
 
-for (let i = 0; i < 16 * 16; i++) {
+for (let i = 0; i < size * size; i++) {
     let div = document.createElement('div');
     div.addEventListener('mousedown', (e) => {
         draw = true;
@@ -21,3 +23,7 @@ function changeColor(e) {
         e.target.style.backgroundColor = 'black';
     }
 }
+
+sizeButton.addEventListener('click', () => {
+    size = prompt('How big do you want the canvas?', '16');
+});
